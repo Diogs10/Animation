@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        *
+        {
+            box-sizing: border-box;
+        }
+        .box
+        {
+            width: 500px;
+            height: 500px;
+            background-color: black;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        body
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .pixel
+        {
+            width: 1%;
+            height: 1%;
+            background-color: black;
+        }
+    </style>
+<body>
+    <div class="box">       
+    </div>
+    <script>
+       const box = document.querySelector('.box')
+
+       for (let i = 0; i < 10000; i++) {
+           const pixel = document.createElement('div')
+           pixel.className = 'pixel'
+        //    const r = Math.floor(Math.random()*255)
+        //    const g = Math.floor(Math.random()*255)
+        //    const b = Math.floor(Math.random()*255)          
+        //    pixel.style.background = `rgb(${r},${g},${b})`
+        pixel.addEventListener('mouseover',function () {
+            const r = Math.floor(Math.random()*255)
+           const g = Math.floor(Math.random()*255)
+           const b = Math.floor(Math.random()*255)          
+           pixel.style.background = `rgb(${r},${g},${b})`
+        })
+        pixel.addEventListener('mouseout',function () {    
+           setTimeout(function () {
+            pixel.style.background = "rgb(0,0,0)"
+           },1000)
+        })
+            box.appendChild(pixel)
+       }
+    </script>
+</body>
+</html>
